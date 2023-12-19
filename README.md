@@ -2,7 +2,8 @@
 
 
 ![Darclander's GitHub stats](https://github-readme-stats.vercel.app/api?username=darclander&show_icons=true&theme=transparent&count_private=true)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=darclander)](https://github.com/darclander/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=darclander)](https://github.com/anuraghazra/github-readme-stats)
+<!-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=darclander)](https://github.com/darclander/github-readme-stats) -->
 
 <!-- OLD STUFF -->
 <!-- These ones show total commits instead use later in life like 2021 and forward &show_icons=true&include_all_commits=true& -->
