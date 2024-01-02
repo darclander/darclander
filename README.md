@@ -1,8 +1,11 @@
 # darclander
+|**Information**|**My stats**|
+|:---:|:---:|
+| Text <br/> Text | ![Darclander's GitHub stats](https://github-readme-stats.vercel.app/api?username=darclander&show_icons=true&theme=transparent&count_private=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage) |
+| Text | [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=darclander&theme=transparent)](https://github.com/anuraghazra/github-readme-stats) |
 
 
-![Darclander's GitHub stats](https://github-readme-stats.vercel.app/api?username=darclander&show_icons=true&theme=transparent&count_private=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=darclander&theme=transparent)](https://github.com/anuraghazra/github-readme-stats)
+
 <!-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=darclander)](https://github.com/darclander/github-readme-stats) -->
 
 <!-- OLD STUFF -->
