@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import json
 import argparse
 
@@ -22,12 +24,10 @@ def generate_windows_theme(input_file):
     theme = {keys[i]: hex_codes[i] for i in range(len(hex_codes))}
     
     theme["cursorColor"] = "#FFFFFF"
-    theme["selectionBackground"] = hex_codes[-1]
-    theme["background"] = hex_codes[0]
-    theme["foreground"] = hex_codes[-1]
-    theme["brightBlack"] = theme["brightWhite"]
-    theme["black"] = theme["white"]
-    
+    theme["background"] = theme["black"] # hex_codes[0]
+    theme["foreground"] = theme["brightWhite"] # hex_codes[-1]
+    theme["selectionBackground"] = theme["foreground"]
+
     theme["name"] = input_file
     
     output_file = f"{input_file}.win_theme"
