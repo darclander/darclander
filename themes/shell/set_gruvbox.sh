@@ -23,14 +23,13 @@ background=${colors[0]}
 foreground=${colors[15]}
 
 for index in ${!colors[@]}; do
-        echo -e "\e]4;${index};${colors[$index]}\a"
+    printf "\e]4;%d;%s\a" "$index" "${colors[$index]}"
 done
 
 # Set foreground
-echo ${foreground}
-echo -ne "\e]10;${foreground}\e\\"
+printf "\e]10;%s\e\\" ${foreground}
 
 # Set background
-echo -ne "\e]11;${background}\e\\"
+printf "\e]11;%s\e\\" ${background}
 
 
