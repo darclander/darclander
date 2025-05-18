@@ -2,6 +2,21 @@
 
 import json
 import argparse
+import os
+import yaml
+from pathlib import Path
+
+
+def has_extensions(filepath, extensions):
+    return os.path.splitext(filepath)[1].lower() in extensions
+
+def extract_hex_colors(yaml_path):
+    with open(yaml_path, 'r') as f:
+        data = yaml.safe_load(f)
+
+    # Extract values that start with #
+    hex_colors = [value for value in data.values() if isinstance(value, str) and value.startswith('#')]
+    return hex_colors
 
 def get_args():
     parser = argparse.ArgumentParser(description="")
@@ -9,17 +24,15 @@ def get_args():
     
     return parser.parse_args()
 
-def generate_windows_theme(input_file):
+def generate_windows_theme(hex_codes, o):
     keys = [
         "black", "red", "green", "yellow", "blue", "purple", "cyan", "white",
         "brightBlack", "brightRed", "brightGreen", "brightYellow", "brightBlue",
         "brightPurple", "brightCyan", "brightWhite"
     ]
 
-    hex_codes = read_hex_file(input_file)
-
-    if len(hex_codes) - 1 != len(keys) - 1:
-        raise ValueError(f"Expected {len(keys) - 1} hex codes, but got {len(hex_codes)}.")
+    if len(hex_codes) != len(keys):
+        raise ValueError(f"Expected {len(keys)} hex codes, but got {len(hex_codes)}.")
     
     theme = {keys[i]: hex_codes[i] for i in range(len(hex_codes))}
     
@@ -28,17 +41,16 @@ def generate_windows_theme(input_file):
     theme["foreground"] = theme["brightWhite"] # hex_codes[-1]
     theme["selectionBackground"] = theme["foreground"]
 
-    theme["name"] = input_file
+    theme["name"] = o
     
-    output_file = f"{input_file}.win_theme"
+    output_file = f"{o}.win_theme"
     with open(output_file, 'w') as f:
         json.dump(theme, f, indent=4)
     print(f"Windows theme saved to {output_file}")
 
     return 0
 
-def generate_bash_theme(input_file):
-    hex_codes = read_hex_file(input_file)
+def generate_bash_theme(hex_codes, o):
 
     shell_script = ""
     shell_script += "#!/bin/bash\n"
@@ -55,17 +67,17 @@ def generate_bash_theme(input_file):
     shell_script += "\n"
 
     shell_script += "for index in ${!colors[@]}; do\n"
-    shell_script += "\techo -e \"\e]4;${index};${colors[$index]}\\a\"\n"
+    shell_script += "\tprintf \"\e]4;%d;%s\\a\" \"$index\" \"$colors[$index]}\"\n"
     shell_script += "done\n"
     shell_script += "\n"
 
-    shell_script += "echo -ne \"\e]10;${foreground}\e\\\\\"\n"
+    shell_script += "printf \"\e]10;%s\e\\\\\" ${foreground}\n"
 
-    shell_script += "echo -ne \"\e]11;${background}\e\\\\\"\n"
+    shell_script += "printf \"\e]11;%s\e\\\\\" ${background}\n"
 
-    with open(f"{input_file}.sh", "w") as f:
+    with open(f"{o}.sh", "w") as f:
         f.write(shell_script)
-    print(f"Bash theme saved to: {input_file}.sh")
+    print(f"Bash theme saved to: {o}.sh")
 
 def read_hex_file(file_path):
     """
@@ -77,10 +89,18 @@ def read_hex_file(file_path):
 def main(args):
     input_file = args.input
     print(input_file)
+    hex_codes = read_hex_file(input_file)
+    if has_extensions(input_file, [".yml", ".yaml"]):
+        hex_codes = extract_hex_colors(input_file)
+        hex_codes[0] = hex_codes[16]
+        hex_codes[1] = hex_codes[0]
+        hex_codes = hex_codes[0:16]
     
-    generate_windows_theme(input_file)
+    print(hex_codes)
+    o = Path(input_file).stem
+    generate_windows_theme(hex_codes, o)
 
-    generate_bash_theme(input_file)
+    generate_bash_theme(hex_codes, o)
 
 
 if __name__ == "__main__":
