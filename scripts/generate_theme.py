@@ -93,7 +93,7 @@ def main(args):
     if has_extensions(input_file, [".yml", ".yaml"]):
         hex_codes = extract_hex_colors(input_file)
         hex_codes[0] = hex_codes[16]
-        hex_codes[1] = hex_codes[0]
+        hex_codes[15] = hex_codes[17]
         hex_codes = hex_codes[0:16]
     
     print(hex_codes)
