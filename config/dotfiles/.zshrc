@@ -61,6 +61,10 @@ setopt hist_ignore_all_dups
 # === Misc ===
 setopt nocaseglob       # case-insensitive globbing
 
+# Bindings
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+
 # Zsh completions 
 fpath=(/usr/share/zsh/functions/Completion $fpath)
 autoload -Uz compinit && compinit
@@ -75,6 +79,6 @@ if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 
 fi
 
-# fzF
+# fzf
 [ -f ~/.zsh/fzf.zsh ] && source ~/.zsh/fzf.zsh
 
