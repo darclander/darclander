@@ -81,4 +81,6 @@ fi
 
 # fzf
 [ -f ~/.zsh/fzf.zsh ] && source ~/.zsh/fzf.zsh
+[ -f ~/.zsh/completion.zsh ] && source ~/.zsh/completion.zsh
+[ -f ~/.zsh/key-bindings.zsh ] && source ~/.zsh/key-bindings.zsh
 
