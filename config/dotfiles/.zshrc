@@ -42,6 +42,7 @@ alias l='ls -CF'
 alias g="git"
 alias gs="git status"
 alias gd="git diff"
+alias gco="git checkout"
 alias glog="git log --pretty=format:'%h %an %s' -n 20"
 
 
@@ -76,7 +77,6 @@ if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242,bold'
 	ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
 fi
 
 # fzf
