@@ -3,10 +3,17 @@ color_prompt=yes
 
 # === Functions ===
 parse_git_branch() {
-	branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-	if [ -n "$branch" ]; then
-		echo "(%F{magenta}$branch%f)"
-	fi
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo "(%F{magenta}$branch%f)"
+        return
+    fi
+
+    tag=$(git describe 2>/dev/null)
+    if [[ -n $tag ]]; then
+        echo "(%F{magenta}$tag%f)"
+        return
+    fi
 }
 
 setopt PROMPT_SUBST
