@@ -1,25 +1,32 @@
-
-
-syntax on
-filetype plugin indent on
-
 set number
-" set relativenumber
-
-set showmatch
-set tabstop=4
 set shiftwidth=4
-set smarttab
+set tabstop=4
+set noexpandtab
+set softtabstop=4
+set textwidth=0
+set wrapmargin=0
+set wrap
+set linebreak
+set noswapfile
 set autoindent
-set smartindent
+set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%41 %3p%% of %L"
 
 set ignorecase
 set smartcase
 set incsearch
-set nohlsearch
-
+set hlsearch
 set wildmenu
 set backspace=indent,eol,start
 
-set wrap
+map <C-x> <Nop>
+
+set omnifunc=ale#completion#OmniFunc
+
+let g:ale_signature_help_enabled = 1
+let g:ale_lsp_suggestions = 1
+let g:ale_set_balloons = 1
+let g:ale_set_highlights = 1
+let g:ale_completion_enabled = 1
+let g:ale_warn_about_trailing_whitespace = 1
+let g:ale_lint_on_save = 0
 
