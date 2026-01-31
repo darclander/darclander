@@ -1,5 +1,7 @@
 -- Enable syntax highlighting and filetype plugins
 vim.cmd("syntax on")
+vim.o.termguicolors = false
+
 vim.cmd("filetype plugin indent on")
 
 -- Line numbers
@@ -30,4 +32,6 @@ vim.opt.backspace = { "indent", "eol", "start" }
 
 -- Line wrapping
 vim.opt.wrap = true
+
+vim.g.mapleader = " "
 

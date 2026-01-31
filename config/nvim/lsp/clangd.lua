@@ -1,11 +1,19 @@
-return {
-  default_config = {
-    cmd = { "clangd", "--background-index" },
-    root_markers = { "compile_commands.json", "compile_flags.txt" },
-    filetypes = { "c", "cpp" },
-    on_attach = function(client, bufnr)
-      -- Enable omnifunc for completion
-      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    end,
-  }
-}
+vim.lsp.config("clangd", {
+	cmd = { "/usr/bin/clangd", "--background-index", "--clang-tidy" },
+	root_dir = vim.fs.find({ ".git", "compile_commands.json" }, { upward = true })[2]
+				  or vim.loop.cwd(),
+	capabilities = _G.cmp_capabilities,
+	on_attach = on_attach,
+})
+
+-- return {
+--   default_config = {
+--     cmd = { "clangd", "--background-index" },
+--     root_markers = { "compile_commands.json", "compile_flags.txt" },
+--     filetypes = { "c", "cpp" },
+--     on_attach = function(client, bufnr)
+--       -- Enable omnifunc for completion
+--       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+--     end,
+--   }
+-- }

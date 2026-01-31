@@ -1,3 +1,5 @@
 *.theme
 *.win_theme
+**/lazy-lock.json
+**/nvim/plugin
 
