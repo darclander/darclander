@@ -5,9 +5,9 @@ return {
     require("lsp_signature").setup({
       bind = true,
       floating_window = true,
-      floating_window_above_cur_line = true,
+      floating_window_above_cur_line = false,
       fix_pos = false,
-      hint_enable = true,
+      hint_enable = false,
       hint_prefix = "󰌵 ",
       hint_scheme = "String",
       max_height = 4,
