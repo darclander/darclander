@@ -51,8 +51,23 @@ vim.api.nvim_create_autocmd("CursorMoved", {
   end,
 })
 
+local virtual_text_enabled = true
+
+function ToggleVirtualText()
+    virtual_text_enabled = not virtual_text_enabled
+    vim.diagnostic.config({ virtual_text = virtual_text_enabled })
+    if virtual_text_enabled then
+        print("Diagnostics virtual_text: ON")
+    else
+        print("Diagnostics virtual_text: OFF")
+    end
+end
+
+vim.keymap.set("n", "<leader>tw", ToggleVirtualText, { noremap = true, silent = true })
+
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	float = true,
+	update_in_insert = true,
 })
 

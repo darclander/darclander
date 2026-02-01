@@ -45,7 +45,7 @@ return {
       -- })
 
       -- Enable the server
-      vim.lsp.enable("clangd")
+	  require("config.lsp-lang")
     end,
   },
 }

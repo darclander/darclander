@@ -6,6 +6,7 @@ vim.lsp.config("clangd", {
 	on_attach = on_attach,
 })
 
+
 -- return {
 --   default_config = {
 --     cmd = { "clangd", "--background-index" },
