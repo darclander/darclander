@@ -1,8 +1,14 @@
 #!/usr/bin/make -f
 
+prepare: prepare-tmux prepare-nvim
+
+prepare-tmux:
+	cp $(HOME)/.tmux.conf ./config/dotfiles/
+
 prepare-nvim:
 	cp -r $(HOME)/.config/nvim ./config/
 
-.PHONY: prepare-nvim
+.PHONY: prepare prepare-nvim prepare-tmux
+
 
 
