@@ -8,7 +8,8 @@ prepare-tmux:
 prepare-nvim:
 	cp -r $(HOME)/.config/nvim ./config/
 
+prepare-zsh:
+	cp $(HOME)/.zshrc ./config/dotfiles/
+
 .PHONY: prepare prepare-nvim prepare-tmux
-
-
 
