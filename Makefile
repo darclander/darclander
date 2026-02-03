@@ -11,5 +11,5 @@ prepare-nvim:
 prepare-zsh:
 	cp $(HOME)/.zshrc ./config/dotfiles/
 
-.PHONY: prepare prepare-nvim prepare-tmux
+.PHONY: prepare prepare-nvim prepare-tmux prepare-zsh
 
