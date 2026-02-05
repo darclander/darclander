@@ -3,23 +3,24 @@ color_prompt=yes
 
 # === Functions ===
 parse_git_branch() {
-    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-    if [ -n "$branch" ]; then
-        echo "(%F{magenta}$branch%f)"
-        return
-    fi
+	branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+	if [ -n "$branch" ]; then
+		echo "(%F{magenta}$branch%f)"
+		return
+	fi
 
-    tag=$(git describe 2>/dev/null)
-    if [[ -n $tag ]]; then
-        echo "(%F{magenta}$tag%f)"
-        return
-    fi
+	tag=$(git describe 2>/dev/null)
+	if [[ -n $tag ]]; then
+		echo "(%F{magenta}$tag%f)"
+		return
+	fi
 }
 
 setopt PROMPT_SUBST
 if [[ "$color_prompt" == yes ]]; then
 	NEWLINE=$'\n'
-	PS1="%B%F{green}%n@%m%f%b:%F{blue}%~%f \$(parse_git_branch) ${NEWLINE}>>> "
+	EXIT_CODE='%(?.%F{white}.%F{red})%?%f'
+	PS1="%B%F{green}%n@%m%f%b:%F{blue}%~%f \$(parse_git_branch) ${NEWLINE}(${EXIT_CODE}) >>> "
 else
     PS1='%n@%m:%~$ '
 fi
@@ -52,7 +53,6 @@ alias gd="git diff"
 alias gco="git checkout"
 alias glog="git log --pretty=format:'%h %an %s' -n 20"
 
-
 # Load additional aliases if present
 if [ -f ~/.bash_aliases ]; then
 	source ~/.bash_aliases
@@ -84,13 +84,13 @@ if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242,bold'
 	ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 fi
 
 # fzf
 [ -f ~/.zsh/fzf.zsh ] && source ~/.zsh/fzf.zsh
-[ -f ~/.zsh/completion.zsh ] && source ~/.zsh/completion.zsh
-[ -f ~/.zsh/key-bindings.zsh ] && source ~/.zsh/key-bindings.zsh
 
-# PATH
-export PATH="/usr/local/go/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=/usr/local/nodejs/bin:$PATH
+
 
