@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-prepare: prepare-tmux prepare-zsh prepare-nvim
+prepare: prepare-tmux prepare-zsh prepare-nvim prepare-bash
 
 prepare-tmux:
 	cp $(HOME)/.tmux.conf ./config/dotfiles/
@@ -8,8 +8,11 @@ prepare-tmux:
 prepare-zsh:
 	cp $(HOME)/.zshrc ./config/dotfiles/
 
+prepare-bash:
+	cp $(HOME)/.bashrc ./config/dotfiles/
+
 prepare-nvim:
 	rsync -av --exclude=".git" $(HOME)/.config/nvim ./config/
 
-.PHONY: prepare prepare-nvim prepare-tmux prepare-zsh
+.PHONY: prepare prepare-nvim prepare-tmux prepare-zsh prepare-bash
 
