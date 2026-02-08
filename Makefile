@@ -9,7 +9,7 @@ prepare-zsh:
 	cp $(HOME)/.zshrc ./config/dotfiles/
 
 prepare-nvim:
-	cp -r $(HOME)/.config/nvim ./config/
+	rsync -av --exclude=".git" $(HOME)/.config/nvim ./config/
 
 .PHONY: prepare prepare-nvim prepare-tmux prepare-zsh
 
