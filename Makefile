@@ -12,7 +12,7 @@ prepare-bash:
 	cp $(HOME)/.bashrc ./config/dotfiles/
 
 prepare-nvim:
-	rsync -av --exclude=".git" $(HOME)/.config/nvim ./config/
+	rsync -a --exclude=".git" $(HOME)/.config/nvim ./config/
 
 .PHONY: prepare prepare-nvim prepare-tmux prepare-zsh prepare-bash
 
