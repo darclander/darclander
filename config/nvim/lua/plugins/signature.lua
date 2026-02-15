@@ -5,15 +5,14 @@ return {
 		require("lsp_signature").setup({
 			max_height = 4,
 			max_width = 60,
-			doc_lines = 4,
+			doc_lines = 0,
 			handler_opts = {
 				border = "rounded",
 				zindex = 200,
 			},
-			wrap = true,
 			bind = true,
-			floating_window = true,
-			floating_window_above_cur_line = false,
+			floating_window = false,
+			floating_window_above_cur_line = true,
 			fix_pos = false,
 			hint_enable = false,
 			hint_prefix = "󰌵 ",
