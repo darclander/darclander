@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import argparse
+import shutil
 
 PATHS = [
     "~/.config/nvim/",
@@ -10,6 +11,9 @@ PATHS = [
     "~/.zsh/zsh-autosuggestions",
     "~/github"
 ]
+
+CONFIG_RC_PATH = Path("./config/dotfiles/")
+HOME = Path.home()
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Setup script")
@@ -28,6 +32,17 @@ def setup_dirs():
 
 def copy_rc():
     print("Copying RC")
+    
+    if not CONFIG_RC_PATH.exists():
+        print("No rc files found")
+        return
+    
+    for file in CONFIG_RC_PATH.iterdir():
+        dst = HOME / file.name
+        if file.is_file():
+            shutil.copy2(file, dst)
+            print(f"Copied {file} -> {dst}")
+
 
 def main():
     args = parse_args()
@@ -35,7 +50,6 @@ def main():
     
     if args.copy_rc:
         copy_rc()
-    
 
 
 if __name__ == "__main__":
