@@ -1,0 +1,23 @@
+[MASTER]
+# Use 1 process for simplicity
+jobs=1
+
+[MESSAGES CONTROL]
+# Disable rules you don’t care about globally
+disable=
+    missing-function-docstring,
+    missing-module-docstring,
+    too-few-public-methods,
+	trailing-whitespace
+
+[FORMAT]
+# Recommended line length
+max-line-length=140
+
+[DESIGN]
+max-args=5
+
+[REPORTS]
+# Disable the full report at the end
+reports=no
+

@@ -71,3 +71,20 @@ vim.diagnostic.config({
 	update_in_insert = true,
 })
 
+vim.diagnostic.config({
+	virtual_text = {
+		format = function(diagnostic)
+			-- include source if present
+			if diagnostic.source then
+				return string.format("%s: %s", diagnostic.source, diagnostic.message)
+			else
+				return diagnostic.message
+			end
+		end,
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+})
+
+
