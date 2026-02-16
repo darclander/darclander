@@ -51,7 +51,7 @@ alias g="git"
 alias gs="git status"
 alias gd="git diff"
 alias gco="git checkout"
-alias glog="git log --pretty=format:'%h %an %s' -n 20"
+alias glog="git log --pretty=format:'%as %h %an %x09 %s' -n 20"
 
 # Load additional aliases if present
 if [ -f ~/.bash_aliases ]; then
