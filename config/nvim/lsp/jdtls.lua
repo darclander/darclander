@@ -7,6 +7,7 @@ vim.lsp.config("jdtls", {
 	                                  or vim.loop.cwd(),
 
 	capabilities = _G.cmp_capabilities,
+	on_attach = on_attach,
 
 	settings = {
 		java = {
