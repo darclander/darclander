@@ -83,8 +83,7 @@ vim.diagnostic.config({
 		end,
 	},
 	signs = true,
-	underline = true,
+	underline = false,
 	update_in_insert = false,
 })
-
 
