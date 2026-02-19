@@ -15,5 +15,6 @@ Contains my dotfiles configuration for:
 - zsh
 - bash
 - tmux
-
+- vim
+- pylint
 
