@@ -18,6 +18,8 @@ set hlsearch
 set wildmenu
 set backspace=indent,eol,start
 
+"remaps
+nnoremap <silent> <Esc><Esc> :if v:hlsearch | nohlsearch | endif<CR>
 map <C-x> <Nop>
 
 set omnifunc=ale#completion#OmniFunc
