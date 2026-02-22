@@ -47,11 +47,17 @@ alias code="code -n"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# git
 alias g="git"
 alias gs="git status"
 alias gd="git diff"
 alias gco="git checkout"
 alias glog="git log --pretty=format:'%as %h %an %x09 %s' -n 20"
+
+# docker
+alias d="docker"
+alias dnw="docker network"
 
 # Load additional aliases if present
 if [ -f ~/.bash_aliases ]; then
