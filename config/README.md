@@ -3,11 +3,12 @@
 ## nvim/ 
 Contains all the files for my neovim configuration.
 ```ada
-nvim/lsp/ -- LSP configuration files
-nvim/lua/
-nvim/lua/config/ -- Configuration of neovim, additional plugins etc
-nvim/lua/core/ -- Core vim configuration files
-nvim/lua/plugins/ -- Configuration files for plugins
+nvim/
+├── lsp/                  -- LSP configuration files
+└── lua/
+    ├── config/           -- Neovim configuration, additional plugins, etc.
+    ├── core/             -- Core Neovim configuration files
+    └── plugins/          -- Plugin configuration files
 ```
 
 ## dotfiles/ 
