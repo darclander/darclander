@@ -50,10 +50,11 @@ alias l='ls -CF'
 
 # git
 alias g="git"
+alias gb="git branch"
 alias gs="git status"
 alias gd="git diff"
 alias gco="git checkout"
-alias glog="git log --pretty=format:'%as %h %an %x09 %s' -n 20"
+alias glog="git log --pretty=format:'%as %h %an %x09 %s' -n 30"
 
 # docker
 alias d="docker"
