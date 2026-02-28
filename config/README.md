@@ -2,6 +2,7 @@
 
 ## nvim/ 
 Contains all the files for my neovim configuration.
+
 ```ada
 nvim/
 ├── lsp/                  -- LSP configuration files

@@ -104,6 +104,11 @@ alias gd="git diff"
 alias glog="git log --pretty=format:'%h %an %s' -n 20"
 alias gco="git checkout"
 
+# docker
+alias d="docker"
+alias dnw="docker network"
+
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
