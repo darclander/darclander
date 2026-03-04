@@ -1,23 +1,65 @@
 vim.lsp.config("gopls", {
-    cmd = { "gopls" },
-    root_dir = vim.fs.find({ "go.mod", ".git" }, { upward = true })[1]
-               or vim.loop.cwd(),
-    filetypes = { "go", "gomod", "gowork", "gotmpl" },
-    capabilities = _G.cmp_capabilities,
-    on_attach = on_attach,
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-                unusedwrite = true,
-                nilness = true,
-                shadow = true,
-                fieldalignment = true,
-            },
-            staticcheck = true,
-        },
-    },
+	cmd = { "gopls" },                                   -- Command to start the language server
+	filetypes = { "go", "gomod", "gowork", "gotmpl", "gosum" }, -- File types that this server will handle
+	root_markers = { "go.mod", "go.work", ".git" },      -- Markers to identify the root of the project
+	settings = {                                         -- Settings for the language server
+		gopls = {
+			env = {
+				GOROOT = "/usr/local/go",
+			},
+			gofumpt = true,
+			codelenses = {
+				gc_details = false,
+				generate = true,
+				regenerate_cgo = true,
+				run_govulncheck = true,
+				test = true,
+				tidy = true,
+				upgrade_dependency = true,
+				vendor = true,
+			},
+			hints = {
+				assignVariableTypes = false,
+				compositeLiteralFields = false,
+				compositeLiteralTypes = false,
+				constantValues = false,
+				functionTypeParameters = false,
+				parameterNames = false,
+				rangeVariableTypes = false,
+			},
+			analyses = {
+				unusedparams = true,
+				unusedwrite = true,
+				nilness = true,
+				shadow = true,
+			},
+			staticcheck = true,
+		},
+	},
 })
+
+-- vim.lsp.config("gopls", {
+--     cmd = { "gopls" },
+--     -- root_dir = vim.fs.find({ "go.mod", ".git" }, { upward = true })[2]
+-- 	--	or vim.loop.cwd(),
+-- 
+-- 	root_markers = { "go.mod", "go.work", ".git" },      -- Markers to identify the root of the project
+--     filetypes = { "go", "gomod", "gowork", "gotmpl" },
+--     capabilities = _G.cmp_capabilities,
+--     on_attach = on_attach,
+--     settings = {
+--         gopls = {
+--             analyses = {
+--                 unusedparams = true,
+--                 unusedwrite = true,
+--                 nilness = true,
+--                 shadow = true,
+--                 fieldalignment = true,
+--             },
+--             staticcheck = true,
+--         },
+--     },
+-- })
 
 -- return {
 -- 	cmd = { "gopls" },                                   -- Command to start the language server
