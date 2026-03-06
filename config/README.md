@@ -20,3 +20,7 @@ Contains my dotfiles configuration for:
 - vim
 - pylint
 
+## Makefile
+Contains targets for setting up the config from a local machine.
+
+
