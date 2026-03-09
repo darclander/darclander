@@ -1,0 +1,5 @@
+konsole
+tmux
+zsh
+zsh-autosuggestions
+
