@@ -2,4 +2,9 @@ konsole
 tmux
 zsh
 zsh-autosuggestions
+git
+make
+htop
+cmake
+gdb
 
