@@ -7,5 +7,7 @@ make
 htop
 cmake
 gdb
+clang
 clangd
+g++
 
