@@ -63,9 +63,9 @@ def install_ubuntu(args):
 	pf = args.package_file or "ubuntu.txt"
 	with open(pf, "r") as package_list:
 		packages = [p.strip() for p in package_list.readlines()]
-
+	
 	pkg_string = " ".join(packages)
-	cmd = ["sudo", "apt", "install" "-y", pkg_string]
+	cmd = ["sudo", "apt", "install", "-y"] + packages
 	run(cmd)
 
 
