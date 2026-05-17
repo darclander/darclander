@@ -10,4 +10,5 @@ gdb
 clang
 clangd
 g++
+xclip
 
