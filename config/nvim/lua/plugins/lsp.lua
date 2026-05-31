@@ -45,7 +45,7 @@ return {
       -- })
 
       -- Enable the server
-	  require("config.lsp-lang")
+	  -- require("config.lsp-lang")
     end,
   },
 }

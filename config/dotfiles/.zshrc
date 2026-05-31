@@ -91,11 +91,13 @@ if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242,bold'
 	ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
 fi
 
 # fzf
 [ -f ~/.zsh/fzf.zsh ] && source ~/.zsh/fzf.zsh
+[ -f ~/.zsh/fzf-key-bindings.zsh ] && source ~/.zsh/fzf-key-bindings.zsh
+[ -f ~/.zsh/fzf-completion.zsh ] && source ~/.zsh/fzf-completion.zsh
+
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/nodejs/bin:$PATH
