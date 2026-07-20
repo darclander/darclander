@@ -7,7 +7,8 @@ prepare-config:
 
 setup:
 	./scripts/setup.py \
-		--copy-rc
+		--copy-rc \
+		--packages --ubuntu
 
 .PHONY: prepare prepare-config setup
 

@@ -20,5 +20,8 @@ prepare-gitconfig:
 prepare-nvim:
 	rsync -a --exclude=".git" $(HOME)/.config/nvim ./
 
-.PHONY: prepare prepare-nvim prepare-tmux prepare-zsh prepare-bash prepare-pylintrc prepare-gitconfig
+prepare-vim:
+	cp $(HOME)/.vimrc ./dotfiles/
+
+.PHONY: prepare prepare-nvim prepare-tmux prepare-zsh prepare-bash prepare-pylintrc prepare-gitconfig prepare-vim
 
